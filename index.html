@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI MAILER PRO ▶</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#050505;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left, rgba(255,215,0,0.12), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,174,0,0.08), transparent 30%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+.container{
+    width:90%;
+    max-width:1350px;
+    margin:auto;
+}
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(12px);
+    background:rgba(0,0,0,0.75);
+    border-bottom:1px solid rgba(255,215,0,0.15);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:800;
+    color:#FFD700;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:#ddd;
+    text-decoration:none;
+    transition:.3s;
+    font-size:15px;
+}
+
+.nav-links a:hover{
+    color:#FFD700;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:120px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 18px;
+    border:1px solid rgba(255,215,0,0.35);
+    border-radius:50px;
+    background:rgba(255,215,0,0.08);
+    color:#FFD700;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:70px;
+    line-height:1.05;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.hero h1 span{
+    color:#FFD700;
+}
+
+.hero p{
+    font-size:18px;
+    color:#c7c7c7;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+}
+
+.btn-gold{
+    background:linear-gradient(135deg,#FFD700,#ff9f00);
+    color:#000;
+    box-shadow:0 0 30px rgba(255,215,0,0.25);
+}
+
+.btn-gold:hover{
+    transform:translateY(-3px);
+}
+
+.btn-dark{
+    border:1px solid rgba(255,255,255,0.15);
+    color:#fff;
+    background:#111;
+}
+
+.btn-dark:hover{
+    border-color:#FFD700;
+    color:#FFD700;
+}
+
+.hero-image{
+    position:relative;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:24px;
+    border:1px solid rgba(255,215,0,0.2);
+    box-shadow:0 30px 60px rgba(0,0,0,0.5);
+}
+
+.glow{
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#FFD700;
+    filter:blur(140px);
+    opacity:0.2;
+    top:-30px;
+    right:-30px;
+    z-index:-1;
+}
+
+.stats{
+    padding:90px 0;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat-box{
+    background:#0d0d0d;
+    padding:35px;
+    border-radius:22px;
+    text-align:center;
+    border:1px solid rgba(255,215,0,0.1);
+    transition:.4s;
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+    border-color:#FFD700;
+}
+
+.stat-box h2{
+    font-size:42px;
+    color:#FFD700;
+    margin-bottom:10px;
+}
+
+.stat-box p{
+    color:#aaa;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:52px;
+    margin-bottom:18px;
+}
+
+.section-title p{
+    color:#b9b9b9;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.features{
+    padding:110px 0;
+}
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.feature-card{
+    background:#0b0b0b;
+    border-radius:24px;
+    padding:35px;
+    border:1px solid rgba(255,215,0,0.12);
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.feature-card::before{
+    content:'';
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:rgba(255,215,0,0.06);
+    border-radius:50%;
+    top:-30px;
+    right:-30px;
+}
+
+.feature-card:hover{
+    transform:translateY(-12px);
+    border-color:#FFD700;
+}
+
+.feature-card i{
+    width:75px;
+    height:75px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#FFD700,#ff9900);
+    color:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    margin-bottom:25px;
+}
+
+.feature-card h3{
+    font-size:24px;
+    margin-bottom:18px;
+}
+
+.feature-card p{
+    color:#b8b8b8;
+    line-height:1.8;
+}
+
+.showcase{
+    padding:120px 0;
+}
+
+.showcase-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:40px;
+}
+
+.showcase-box{
+    background:#0b0b0b;
+    padding:25px;
+    border-radius:24px;
+    border:1px solid rgba(255,215,0,0.12);
+}
+
+.showcase-box img{
+    width:100%;
+    border-radius:16px;
+}
+
+.showcase-box h3{
+    margin-top:20px;
+    font-size:24px;
+}
+
+.showcase-box p{
+    color:#b8b8b8;
+    line-height:1.7;
+    margin-top:10px;
+}
+
+.video-section{
+    padding:120px 0;
+}
+
+.video-box{
+    position:relative;
+    border-radius:28px;
+    overflow:hidden;
+    border:1px solid rgba(255,215,0,0.2);
+}
+
+.video-box img{
+    width:100%;
+    display:block;
+    filter:brightness(.7);
+}
+
+.play-btn{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:rgba(255,215,0,0.9);
+    color:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,215,0,.5)}
+    70%{box-shadow:0 0 0 30px rgba(255,215,0,0)}
+    100%{box-shadow:0 0 0 0 rgba(255,215,0,0)}
+}
+
+.pricing{
+    padding:120px 0;
+}
+
+.pricing-card{
+    max-width:800px;
+    margin:auto;
+    background:linear-gradient(180deg,#111,#080808);
+    border-radius:28px;
+    padding:60px;
+    border:1px solid rgba(255,215,0,0.2);
+    text-align:center;
+    position:relative;
+}
+
+.pricing-card::before{
+    content:'POPULAR';
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:#FFD700;
+    color:#000;
+    padding:8px 16px;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.pricing-card h3{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:72px;
+    color:#FFD700;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.price span{
+    font-size:20px;
+    color:#aaa;
+}
+
+.pricing-card p{
+    color:#c1c1c1;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.pricing-features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-bottom:40px;
+    text-align:left;
+}
+
+.pricing-features div{
+    background:#101010;
+    padding:16px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.pricing-features i{
+    color:#FFD700;
+    margin-right:10px;
+}
+
+.contact{
+    padding:120px 0;
+}
+
+.contact-box{
+    background:#0b0b0b;
+    border-radius:30px;
+    padding:70px;
+    text-align:center;
+    border:1px solid rgba(255,215,0,0.15);
+}
+
+.contact-box h2{
+    font-size:54px;
+    margin-bottom:20px;
+}
+
+.contact-box p{
+    color:#bfbfbf;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+footer{
+    border-top:1px solid rgba(255,215,0,0.08);
+    padding:40px 0;
+    text-align:center;
+    color:#888;
+}
+
+@media(max-width:1100px){
+    .hero-grid,
+    .showcase-grid,
+    .features-grid,
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .section-title h2,
+    .contact-box h2{
+        font-size:38px;
+    }
+
+    .pricing-features{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:768px){
+    .nav-links{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero-buttons,
+    .contact-buttons{
+        flex-direction:column;
+    }
+
+    .pricing-card,
+    .contact-box{
+        padding:35px;
+    }
+}
+
+.video-section{
+    padding:120px 0;
+}
+
+.video-box{
+    position:relative;
+    border-radius:28px;
+    overflow:hidden;
+    border:1px solid rgba(255,215,0,0.2);
+    box-shadow:0 30px 80px rgba(0,0,0,0.6);
+}
+
+.promo-video{
+    width:100%;
+    display:block;
+    border-radius:28px;
+    background:#000;
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container">
+<nav>
+<div class="logo">AI MAILER <span>PRO</span></div>
+
+<div class="nav-links">
+<a href="#features">Features</a>
+<a href="#showcase">Infrastructure</a>
+<a href="#pricing">Pricing</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<div class="hero-grid">
+
+<div>
+<div class="badge">
+<i class="fa-solid fa-shield"></i>
+Enterprise Email Marketing Platform
+</div>
+
+<h1>
+AI Powered <span>Bulk Email</span><br>
+Marketing Infrastructure
+</h1>
+
+<p>
+AI MAILER PRO is an enterprise-grade email marketing platform designed for professional marketers, agencies, and bulk senders. Powered with SMTP + Gmail API integration with AI smart personalization.
+</p>
+
+<div class="hero-buttons">
+<a href="https://wa.me/919519238631" class="btn btn-gold">
+<i class="fa-brands fa-whatsapp"></i>
+Contact on WhatsApp
+</a>
+
+<a href="mailto:yourmail@example.com" class="btn btn-dark">
+<i class="fa-solid fa-envelope"></i>
+INTERNETART@REDIFFMAIL.COM
+</a>
+</div>
+</div>
+
+<div class="hero-image">
+<div class="glow"></div>
+<img src="images/dashboard-main.png" alt="AI Mailer Dashboard">
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="stats">
+<div class="container">
+<div class="stats-grid">
+
+<div class="stat-box">
+<h2>100M+</h2>
+<p>Emails Delivered</p>
+</div>
+
+<div class="stat-box">
+<h2>99.9%</h2>
+<p>Stable Sending Engine</p>
+</div>
+
+<div class="stat-box">
+<h2>SMTP + API</h2>
+<p>Dual Delivery Infrastructure</p>
+</div>
+
+<div class="stat-box">
+<h2>24/7</h2>
+<p>Custom Support</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="features" id="features">
+<div class="container">
+
+<div class="section-title">
+<h2>Powerful Features</h2>
+<p>
+Built for professional email marketers who need speed, automation, flexibility, and high-volume delivery capabilities.
+</p>
+</div>
+
+<div class="features-grid">
+
+<div class="feature-card">
+<i class="fa-solid fa-paper-plane"></i>
+<h3>SMTP + Gmail API</h3>
+<p>
+Send emails using traditional SMTP servers or Gmail API infrastructure with advanced delivery optimization.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-bolt"></i>
+<h3>High Speed Sending</h3>
+<p>
+Multithread sending engine with AI enabled smart delay controls for efficient high-volume campaigns.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-code"></i>
+<h3>HTML Live Editor</h3>
+<p>
+Edit professional email templates using the built-in HTML editor with live preview functionality.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-image"></i>
+<h3>HTML To PDF/PNG/JPEG</h3>
+<p>
+Automatically convert HTML templates into image and PDF attachments for advanced email campaigns.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-tags"></i>
+<h3>Dynamic Tags</h3>
+<p>
+Powerful dynamic personalization system with randomization and content generation support.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-microphone"></i>
+<h3>Voice Note Sending</h3>
+<p>
+Attach voice recordings directly inside campaigns for enhanced customer engagement.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-shield"></i>
+<h3>License Protection</h3>
+<p>
+Enterprise-grade login and authentication system with secure license validation infrastructure.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-chart-line"></i>
+<h3>Advanced Delivery Control</h3>
+<p>
+Fine-tune delays, batch limits, retry logic, concurrency, and sending behavior.
+</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-layer-group"></i>
+<h3>Multi User Control</h3>
+<p>
+Manage multiple email campaigns efficiently with custom configurations and dynamic content on different PCs.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="showcase" id="showcase">
+<div class="container">
+
+<div class="section-title">
+<h2>Professional Dashboard</h2>
+<p>
+Clean enterprise UI built for serious email marketers.
+</p>
+</div>
+
+<div class="showcase-grid">
+
+<div class="showcase-box">
+<img src="images/ss1.png" alt="SMTP Dashboard">
+<h3>SMTP Infrastructure</h3>
+<p>
+Configure SMTP servers, delivery settings, authentication, and campaign controls from one powerful interface.
+</p>
+</div>
+
+<div class="showcase-box">
+<img src="images/ss2.png" alt="Gmail API Dashboard">
+<h3>Gmail API Integration</h3>
+<p>
+Modern Gmail API sending infrastructure with advanced authentication and delivery optimization.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="video-section">
+<div class="container">
+
+<div class="section-title">
+<h2>Customer Support System</h2>
+<p>
+Experience the power of enterprise email marketing automation with live tech experts to manage and assign your first email campaign followed by 24*7 customer support.
+</p>
+</div>
+
+<div class="video-box">
+
+<video autoplay muted loop playsinline controls class="promo-video">
+    <source src="images/ai_mailer_pro_cinematic_intro.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</div>
+</section>
+
+<section class="pricing" id="pricing">
+<div class="container">
+
+<div class="section-title">
+<h2>Monthly Licensing</h2>
+<p>
+Custom monthly plans based on your required sending infrastructure and license.
+</p>
+</div>
+
+<div class="pricing-card">
+<h3>AI MAILER PRO</h3>
+
+<div class="price">
+Custom <span>/ Monthly</span>
+</div>
+
+<p>
+Pricing is customized for every client depending on quantity, features, sending requirements, and infrastructure needs.
+</p>
+
+<div class="pricing-features">
+<div><i class="fa-solid fa-check"></i> SMTP + Gmail API</div>
+<div><i class="fa-solid fa-check"></i> High Volume Sending</div>
+<div><i class="fa-solid fa-check"></i> HTML Conversion Engine</div>
+<div><i class="fa-solid fa-check"></i> Voice Note Support</div>
+<div><i class="fa-solid fa-check"></i> Dynamic Tag System</div>
+<div><i class="fa-solid fa-check"></i> Advanced Delay Controls</div>
+<div><i class="fa-solid fa-check"></i> Enterprise Dashboard</div>
+<div><i class="fa-solid fa-check"></i> Personal Setup Support</div>
+</div>
+
+<a href="https://wa.me/1234567890" class="btn btn-gold">
+<i class="fa-brands fa-whatsapp"></i>
+Get Your Custom Pricing
+</a>
+
+</div>
+
+</div>
+</section>
+
+<section class="contact" id="contact">
+<div class="container">
+
+<div class="contact-box">
+<h2>Ready To Scale Your Email Campaigns?</h2>
+
+<p>
+Get your custom AI MAILER PRO monthly license today. Contact directly for pricing, setup, infrastructure consultation, and enterprise support.
+</p>
+
+<div class="contact-buttons">
+
+<a href="https://wa.me/919519238631" class="btn btn-gold">
+<i class="fa-brands fa-whatsapp"></i>
+Chat on WhatsApp
+</a>
+
+<a href="mailto:yourmail@example.com" class="btn btn-dark">
+<i class="fa-solid fa-envelope"></i>
+INTERNETART@REDIFFMAIL.COM
+</a>
+
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container">
+© 2026 AI MAILER PRO ™ — All Rights Reserved
+</div>
+</footer>
+
+<script>
+history.scrollRestoration = "manual";
+
+window.onload = () => {
+    window.scrollTo(0, 0);
+};
+</script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69f6ee28b4a1331c31f07480/1jnm94jrs';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+</body>
+</html>
